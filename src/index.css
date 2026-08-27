@@ -1,0 +1,37 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  color: #fff;
+  transition: background 1s ease;
+}
+
+/* Background gradient per weather condition, set on <body> by
+   useWeatherBackground based on the current search result. Keep these
+   keys in sync with getWeatherThemeKey in src/utils/weatherTheme.js. */
+body[data-weather='clear-day'] {
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #f6b93b);
+}
+body[data-weather='clear-night'] {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+body[data-weather='clouds-day'] {
+  background: linear-gradient(135deg, #3a4750, #6b7280, #9aa5b1);
+}
+body[data-weather='clouds-night'] {
+  background: linear-gradient(135deg, #232526, #414345, #56595c);
+}
+body[data-weather='rain'] {
+  background: linear-gradient(135deg, #16222a, #3a6073, #4facfe);
+}
+body[data-weather='thunderstorm'] {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+}
+body[data-weather='snow'] {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af, #c4e0e5);
+}
+body[data-weather='mist'] {
+  background: linear-gradient(135deg, #3e5151, #6e7f80, #a8b6b7);
+}
