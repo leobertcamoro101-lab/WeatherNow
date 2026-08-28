@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import styles from './SearchBar.module.css';
+
+const btnClasses =
+  "px-6 py-3 rounded-[10px] border-none bg-[#4fc3f7] text-[#0f2027] text-base font-semibold cursor-pointer transition-[background,opacity] duration-200 [&:hover:not(:disabled)]:bg-[#81d4fa] disabled:opacity-50 disabled:cursor-not-allowed";
 
 const SearchBar = ({ onSearch, loading, onLocate }) => {
   const [city, setCity] = useState('');
@@ -11,10 +13,10 @@ const SearchBar = ({ onSearch, loading, onLocate }) => {
   };
 
   return (
-    <form className={styles.searchBar} onSubmit={handleSubmit}>
+    <form className="flex gap-2 mb-6" onSubmit={handleSubmit}>
       <input
         type="text"
-        className={styles.input}
+        className="flex-1 px-4 py-3 rounded-[10px] border border-white/20 bg-white/10 text-white text-base backdrop-blur-[10px] outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-white/50 disabled:opacity-60"
         placeholder="Search city... e.g. Cebu, Tokyo, London"
         value={city}
         onChange={(e) => setCity(e.target.value)}
@@ -22,14 +24,14 @@ const SearchBar = ({ onSearch, loading, onLocate }) => {
       />
       <button
         type="submit"
-        className={styles.btn}
+        className={btnClasses}
         disabled={loading || !city.trim()}
       >
         {loading ? '...' : 'Search'}
       </button>
       <button
         type="button"
-        className={styles.btn}
+        className={btnClasses}
         onClick={onLocate}
         disabled={loading}
         aria-label="Use my current location"

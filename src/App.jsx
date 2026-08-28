@@ -5,7 +5,6 @@ import ForecastCard from './components/ForecastCard';
 import CityWeatherList from './components/CityWeatherList';
 import WeatherCardSkeleton from './components/WeatherCardSkeleton';
 import ErrorMessage from './components/ErrorMessage';
-import styles from './App.module.css';
 
 function App() {
   const {
@@ -17,30 +16,29 @@ function App() {
     getWeather,
     cityWeathers,
     removeCityWeather,
-    getWeatherByLocation
+    getWeatherByLocation,
   } = useWeather();
 
   return (
-    <div className={styles.app}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>🌤 WeatherNow</h1>
-        <p className={styles.subtitle}>Real-time weather for any city</p>
+    <div className="max-w-[640px] mx-auto px-4 py-8 min-h-screen">
+      <header className="text-center mb-8">
+        <h1 className="text-[2rem] font-bold tracking-[-0.5px]">🌤 WeatherNow</h1>
+        <p className="text-white/60 mt-1 text-[0.95rem]">Real-time weather for any city</p>
       </header>
 
-      <main className={styles.main}>
+      <main className="flex flex-col">
         <SearchBar
           onSearch={getWeather}
           loading={loading}
           onLocate={getWeatherByLocation}
         />
 
-        {/* {loading && <WeatherCardSkeleton />} */}
         {loading && (
           <>
-            <p className={styles.loadingLabel}>
-              {loadingSource === "location"
-                ? "Fetching location data..."
-                : "Fetching weather data..."}
+            <p className="text-center text-white/60 mb-2">
+              {loadingSource === 'location'
+                ? 'Fetching location data...'
+                : 'Fetching weather data...'}
             </p>
             <WeatherCardSkeleton />
           </>
@@ -56,8 +54,8 @@ function App() {
         )}
 
         {!weather && !loading && !error && (
-          <div className={styles.emptyState}>
-            <p className={styles.emptyEmoji}>🌍</p>
+          <div className="text-center py-16 px-4 text-white/50">
+            <p className="text-5xl mb-4">🌍</p>
             <p>Search for a city to see the current weather.</p>
           </div>
         )}
