@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="max-w-[640px] mx-auto px-4 py-8 min-h-screen">
       <header className="text-center mb-8">
-        <h1 className="text-[2rem] font-bold tracking-[-0.5px]">🌤 WeatherNow</h1>
+        <h1 className="text-[1.6rem] sm:text-[2rem] font-bold tracking-[-0.5px]">🌤 WeatherNow</h1>
         <p className="text-white/60 mt-1 text-[0.95rem]">Real-time weather for any city</p>
       </header>
 

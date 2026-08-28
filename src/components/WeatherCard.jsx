@@ -25,22 +25,22 @@ const WeatherCard = ({ weather }) => {
 
   return (
     <div className="bg-white/10 backdrop-blur-lg border border-white/15 rounded-[20px] p-7 mb-4">
-      <div className="flex justify-between items-start">
-        <div>
-          <h2 className="text-2xl font-bold">
+      <div className="flex justify-between items-start gap-3">
+        <div className="min-w-0 flex-1">
+          <h2 className="text-2xl font-bold break-words">
             {name}, <span className="text-white/60 font-normal">{country}</span>
           </h2>
           <p className="text-white/70 mt-1 capitalize">{description}</p>
         </div>
         <img
-          className="w-[72px] h-[72px]"
+          className="w-[72px] h-[72px] flex-shrink-0"
           src={getWeatherIcon(icon)}
           alt={description}
         />
       </div>
 
-      <div className="flex items-center justify-between gap-3">
-        <div className="text-[3.5rem] font-extrabold mt-2 mb-1">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <div className="text-[2.75rem] sm:text-[3.5rem] font-extrabold mt-2 mb-1">
           {Math.round(displayTemp)}°{unit}
         </div>
 

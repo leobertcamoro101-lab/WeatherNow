@@ -1,12 +1,12 @@
 const WeatherCardSkeleton = () => {
   return (
     <div className="bg-white/10 backdrop-blur-lg border border-white/15 rounded-[20px] p-7 mb-4">
-      <div className="flex justify-between items-start">
-        <div>
-          <div className="skeleton-bone rounded-md w-[140px] h-6 mb-2" />
-          <div className="skeleton-bone rounded-md w-[100px] h-4" />
+      <div className="flex justify-between items-start gap-3">
+        <div className="min-w-0">
+          <div className="skeleton-bone rounded-md w-[140px] max-w-full h-6 mb-2" />
+          <div className="skeleton-bone rounded-md w-[100px] max-w-full h-4" />
         </div>
-        <div className="skeleton-bone rounded-full w-[72px] h-[72px]" />
+        <div className="skeleton-bone rounded-full w-[72px] h-[72px] flex-shrink-0" />
       </div>
 
       <div className="skeleton-bone rounded-[10px] w-40 h-14 mt-2 mb-1" />

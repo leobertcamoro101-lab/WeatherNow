@@ -13,32 +13,34 @@ const SearchBar = ({ onSearch, loading, onLocate }) => {
   };
 
   return (
-    <form className="flex gap-2 mb-6" onSubmit={handleSubmit}>
+    <form className="flex flex-wrap gap-2 mb-6" onSubmit={handleSubmit}>
       <input
         type="text"
-        className="flex-1 px-4 py-3 rounded-[10px] border border-white/20 bg-white/10 text-white text-base backdrop-blur-[10px] outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-white/50 disabled:opacity-60"
+        className="flex-1 min-w-0 px-4 py-3 rounded-[10px] border border-white/20 bg-white/10 text-white text-base backdrop-blur-[10px] outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-white/50 disabled:opacity-60"
         placeholder="Search city... e.g. Cebu, Tokyo, London"
         value={city}
         onChange={(e) => setCity(e.target.value)}
         disabled={loading}
       />
-      <button
-        type="submit"
-        className={btnClasses}
-        disabled={loading || !city.trim()}
-      >
-        {loading ? '...' : 'Search'}
-      </button>
-      <button
-        type="button"
-        className={btnClasses}
-        onClick={onLocate}
-        disabled={loading}
-        aria-label="Use my current location"
-        title="Use my current location"
-      >
-        📍
-      </button>
+      <div className="flex gap-2">
+        <button
+          type="submit"
+          className={btnClasses}
+          disabled={loading || !city.trim()}
+        >
+          {loading ? '...' : 'Search'}
+        </button>
+        <button
+          type="button"
+          className={btnClasses}
+          onClick={onLocate}
+          disabled={loading}
+          aria-label="Use my current location"
+          title="Use my current location"
+        >
+          📍
+        </button>
+      </div>
     </form>
   );
 };
